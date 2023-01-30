@@ -7,6 +7,17 @@ const guessMyNumber = function(n) {
     }
 }
 
+class GuessMyLetter{
+    constructor(letter) {
+        this.letter = letter
+    }
+    guess(g) {
+        if (g < this.letter) {return "That's too early in the alphabet"}
+        if (g > this.letter) {return "That's too late in the alphabet"}
+        if (g === this.letter) {return "That's it!!!!!!!!"}
+    }
+}
+
 module.exports = guessMyNumber
 
 /**
