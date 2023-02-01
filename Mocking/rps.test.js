@@ -1,5 +1,6 @@
 const RockPaperScissors = require("./rps");
 const RandomGenerator = require("./randomRPS");
+const readline = require("node:readline/promises");
 jest.mock("./randomRPS");
 
 describe("RockPaperScissors", () => {
@@ -24,5 +25,21 @@ describe("RockPaperScissors", () => {
     expect(game.getResult("scissors")).toBe(
       "You picked scissors, I picked paper. You Loose!"
     );
+  });
+
+  it("asks a player for a move", async () => {
+    const mockRandomGenerator = new RandomGenerator();
+    mockRandomGenerator.getMove.mockImplementation(() => "paper");
+    
+    jest.spyOn(readline, 'createInterface').mockImplementationOnce(() => {
+        return {question: () => "Scissors", close: () => null}
+      })
+    const game = new RockPaperScissors(mockRandomGenerator);
+    let playerMove = await game.getPlayerMove();
+    expect(playerMove).toBe("scissors");
+
+    expect(game.getResult(playerMove)).toBe(
+        "You picked scissors, I picked paper. You Loose!"
+      );
   });
 });
