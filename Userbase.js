@@ -27,4 +27,8 @@ class UserBase {
   getIntroductions() {
     return this.users.map((u) => u.getIntroduction());
   }
+  purge() {
+    let userToDrop = this.users.pop()
+    return `Got rid of ${userToDrop.getName()}`
+  }
 }
