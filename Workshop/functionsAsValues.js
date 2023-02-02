@@ -61,7 +61,8 @@ function funcFactory2(number) {
         return "Was that even a number?"
     })
 }
-const guessMyNumber5 = funcFactory2(45)
+const guessMyNumber45 = funcFactory2(45)
+const guessMyNumber62 = funcFactory2(62)
 
 
 // And finally!!!!
@@ -74,4 +75,4 @@ function ultimateFuncFactory() {
         return "Was that even a number?"
     })
 }
-const guessMyNumber6 = ultimateFuncFactory()
+const guessMySecretNumber = ultimateFuncFactory()
