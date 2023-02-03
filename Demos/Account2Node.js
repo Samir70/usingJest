@@ -1,4 +1,4 @@
-const Account = require("./bankBalance.js");
+const {Account, Account2} = require("./Account.js");
 let account = new Account("Samir", "secret!", 10000);
 account.getName()
 // 'Samir'

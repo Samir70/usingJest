@@ -18,4 +18,28 @@ function Account(name, password, openingBalance) {
   };
 }
 
-module.exports = Account;
+class Account2 {
+  #password;
+  #balance
+  constructor(name, password, openingBalance) {
+    this.#password = password;
+    this.name = name;
+    this.#balance = openingBalance;
+  }
+  getName() {
+    return this.name;
+  }
+  getBalance(pw) {
+    if (pw !== this.#password) {
+      return "You are not authorised to know that";
+    } else {
+      return `£${this.#balance}`;
+    }
+  }
+  invest(money) {
+    this.#balance += money;
+    return `£${money} invested in the account`;
+  }
+}
+
+module.exports = {Account, Account2};
