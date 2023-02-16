@@ -27,8 +27,9 @@ class UserBase {
   getIntroductions() {
     return this.users.map((u) => u.getIntroduction());
   }
-  purge() {
-    let userToDrop = this.users.pop()
-    return `Got rid of ${userToDrop.getName()}`
-  }
 }
+
+module.exports = { users, User, UserBase };
+
+// for use in node
+// const { users, User, UserBase } = require("./UserBase.js")
