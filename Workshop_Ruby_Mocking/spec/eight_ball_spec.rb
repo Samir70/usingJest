@@ -64,3 +64,34 @@ end
 # expect(eb).to receive(:rand).and_return(6)
 # expect(eb.responses).to receive(:sample).and_return('It is decidedly so.')
 # expect(eb.responses).to receive(:sample).and_return('Outlook not so good.')
+
+
+
+
+# With dependency injection
+# rnd_function_dbl = double :rnd_function, get: 4
+# expect(rnd_function_dbl).to receive(:pick_num).and_return(4)
+# eb = MagicEightBall.new(rnd_function_dbl)
+
+# expect(rnd_function_dbl).to receive(:pick_num).and_return(6)
+
+# def initialize(rnd_function)
+#   @responses = []
+#   @rnd_function = rnd_function
+# end
+
+# class MyRandFunc
+#   def pick_num(maximum)
+#     return rand maximum   
+#   end
+# end
+
+
+# rndf = MyRandFunc.new
+# eb = MagicEightBall.new(rndf)
+
+
+# def random_response
+#   i = @rnd_function.pick_num(@responses.length)
+#   return @responses[i]
+# end
